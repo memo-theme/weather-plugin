@@ -1,0 +1,36 @@
+{
+	"name": "weather-plugin",
+	"version": "1.0.0",
+	"private": true,
+	"lint-staged": {
+		"*.{js,mjs,cjs,ts,mts,cts}": [
+			"eslint",
+			"prettier --write --ignore-unknown"
+		],
+		"!(*.{js,mjs,cjs,ts,mts,cts})": [
+			"prettier --write --ignore-unknown"
+		]
+	},
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev --test-scheduled",
+		"start": "wrangler dev --test-scheduled",
+		"cf-typegen": "wrangler types",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.1",
+		"eslint": "^9.39.1",
+		"eslint-config-prettier": "^10.1.8",
+		"globals": "^16.5.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
+		"prettier": "^3.7.3",
+		"typescript": "^5.5.2",
+		"typescript-eslint": "^8.48.1",
+		"wrangler": "^4.51.0"
+	},
+	"dependencies": {
+		"jiti": "^2.6.1"
+	}
+}
