@@ -1,10 +1,10 @@
 export default {
 	async scheduled(controller, env, ctx) {
-		ctx.waitUntil(UpdateWeather(env));
+		ctx.waitUntil(updateWeather(env));
 	},
 };
 
-async function UpdateWeather(env) {
+async function updateWeather(env) {
 	const lat = 43.33003301715253;
 	const lon = 145.5976092292395;
 	const apiKey = await env.OPENWEATHERMAP_APIKEY.get();
