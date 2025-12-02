@@ -7,7 +7,7 @@ export default {
 async function UpdateWeather(env) {
 	const lat = 43.33003301715253;
 	const lon = 145.5976092292395;
-	const apiKey = env.OPENWEATHERMAP_APIKEY.get();
+	const apiKey = await env.OPENWEATHERMAP_APIKEY.get();
 
 	if (!apiKey) {
 		console.error('OPENWEATHERMAP_APIKEY secret not configured');
