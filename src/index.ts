@@ -20,7 +20,7 @@ async function updateWeather(env) {
 		const weatherResponse = await fetch(weatherUrl);
 		if (!weatherResponse.ok) {
 			const errorText = await weatherResponse.text();
-			console.error('Failed to fetch weather data', errorText);
+			console.error(`API error when fetching weather data: status ${weatherResponse.status} ${weatherResponse.statusText}`, errorText);
 			return;
 		}
 
@@ -30,9 +30,9 @@ async function updateWeather(env) {
 		console.log('Successfully fetched and stored weather data.');
 	} catch (e) {
 		if (e instanceof Error) {
-			console.error('Failed to fetch weather data', e.message);
+			console.error('Network error when fetching weather data:', e.message);
 		} else {
-			console.error('Failed to fetch weather data', 'Unknown error');
+			console.error('Network error when fetching weather data: Unknown error');
 		}
 	}
 }
